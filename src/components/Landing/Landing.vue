@@ -1,4 +1,5 @@
 <script setup>
+
 </script>
 
 <template>
@@ -11,7 +12,9 @@
                 <h4 class="text-2xl font-bold text-white">Ekskul-Hub</h4>
             </div>
             <div class="w-45 bg-linear-to-b from-blue-800 to-blue-600 flex items-center rounded-full justify-center">
-                <button class="font-bold text-white text-xl">Login</button>
+                <router-link to="/login">
+                    <button class="font-bold text-white text-xl">Login</button>
+                </router-link>
             </div>
         </div>
 
@@ -23,7 +26,8 @@
                     <h1 class="text-center font-bold text-6xl text-blue-600">Ekstrakurikuler</h1>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-xl break-words text-gray-400">Kelola Ekstrakurikuler Sekolah Dengan Lebih Mudah Didesain
+                    <h3 class="font-semibold text-xl break-words text-gray-400">Kelola Ekstrakurikuler Sekolah Dengan
+                        Lebih Mudah Didesain
                         untuk Pembina</h3>
                 </div>
             </div>

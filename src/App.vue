@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="h-screen bg-linear-to-t from-sky-300/90 to-sky-100">
+  <div class="bg-linear-to-t from-sky-300/90 to-sky-100 h-full">
     <router-view />
   </div>
 </template>

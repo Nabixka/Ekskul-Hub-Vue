@@ -1,4 +1,45 @@
 <script setup>
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter()
+    const email = ref("")
+    const password = ref("")
+    const API_URL = import.meta.env.VITE_API_URL
+    const error = ref(null)
+    const loading = ref(false)
+
+    const login = async () => {
+        try{
+            loading.value = true
+            const res = await fetch(`${API_URL}/api/auth/login/pembina`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email.value,
+                    password: password.value
+                })
+            })
+
+            if(!res.ok){
+                error.value = "Login Gagal"
+            }
+
+            const json = await res.json()
+            const data = json.data
+
+            localStorage.setItem('token', data.token)
+
+            router.push('/home')
+        }
+        catch(err){
+            error.value = "Email Atau Password Salah"
+            console.log(err)
+        }
+    }
+
 </script>
 
 <template>
@@ -10,18 +51,21 @@
             <div>
                 <h3 class="text-4xl font-bold">Login</h3>
             </div>
-            <form class="flex flex-col gap-5">
+            <form @submit.prevent="login" class="flex flex-col gap-5">
                 <div class="flex flex-col gap-5">
                     <div class="w-full">
-                        <input class="w-full pl-2 bg-gray-100/90 rounded-md py-2" type="email" placeholder="Masukkan Email">
+                        <input v-model="email" class="w-full pl-2 bg-gray-100/90 rounded-md py-2" type="email" placeholder="Masukkan Email" required>
                     </div>
                     <div class="w-full">
-                        <input class="w-full pl-2 bg-gray-100/90 rounded-md py-2" type="text" placeholder="Masukkan Password">
+                        <input v-model="password" class="w-full pl-2 bg-gray-100/90 rounded-md py-2" type="password" placeholder="Masukkan Password" required>
                     </div>
                 </div>
-                <div class="flex justify-end">
-                    <button
-                        class="text-white font-semibold bg-linear-to-b from-blue-800 to-blue-500 w-2/5 py-1 rounded-md">Login</button>
+                <div class="flex justify-between">
+                    <div>
+                        <h3 v-if="loading" class="text-white text-sm">Sedang Memuat</h3>
+                        <h3 v-else-if="error" class="text-red-600 text-sm">{{ error }}</h3>
+                    </div>
+                    <button class="text-white font-semibold bg-linear-to-b from-blue-800 to-blue-500 w-2/5 py-1 rounded-md">Login</button>
                 </div>
             </form>
         </div>
