@@ -1,26 +1,26 @@
 <script setup>
-    import { ref } from 'vue'
-    import { useRouter } from 'vue-router'
-    import { removeToken } from '../../utils/helper'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { removeToken } from '../../utils/helper'
 
-    const router = useRouter()
-    const isOpen = ref(false)
+const router = useRouter()
+const isOpen = ref(false)
 
-    const Handleopen = () => {
-        isOpen.value = !isOpen.value
-    }
+const Handleopen = () => {
+    isOpen.value = !isOpen.value
+}
 
-    const LogOut = () => {
-        removeToken(),
+const LogOut = () => {
+    removeToken(),
         router.push("/login")
-    }
+}
 
 </script>
 
 <template>
     <!-- Large -->
     <div
-        class="lg:flex hidden fixed top-0 left-0 h-screen bg-blue-600 flex-col h-screen w-1/6 justify-between pb-10 pt-10 gap-8 pl-5 pr-5">
+        class="lg:flex hidden fixed top-0 left-0 h-screen bg-blue-600 flex-col h-screen w-1/6 justify-between pb-10 pt-10 gap-8 pl-2 pr-2">
         <div class="flex flex-col gap-10">
             <h3 class="font-extrabold text-white text-2xl">Ekskul-Hub</h3>
             <div class="flex flex-col gap-5">
@@ -57,7 +57,7 @@
     <!-- Small - Medium -->
     <div class="lg:hidden bg-blue-800 w-full py-2">
         <div class="flex justify-between">
-            <h3 class="pl-5 text-white">Ekskul-Hub</h3>
+            <h3 class="pl-5 text-white font-bold">Ekskul-Hub</h3>
             <button @click="Handleopen">
                 <i class="text-white pi pi-list pr-5 font-bold text-2xl"></i>
             </button>
@@ -80,6 +80,12 @@
                 to="/absen">
                 <h3 class="font-bold">Absensi</h3>
             </router-link>
+            <div class="flex gap-5 items-center justify-center">
+                <i class="pi pi-sign-out text-white text-xl font-bold"></i>
+                <button @click="LogOut">
+                    <h3 class="font-bold text-white text-xl">Logout</h3>
+                </button>
+            </div>
         </div>
     </div>
 
