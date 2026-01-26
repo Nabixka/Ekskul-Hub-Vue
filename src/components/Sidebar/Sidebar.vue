@@ -30,7 +30,7 @@ const LogOut = () => {
                     <h3 class="font-semibold text-lg">Home</h3>
                 </router-link>
                 <router-link active-class="!text-black bg-yellow-300 text-black rounded-md"
-                    class="text-white flex pl-4 py-3 items-center gap-3" to="/jadwal">
+                    class="text-white flex pl-4 py-3 items-center gap-3" to="/schedule">
                     <i class="pi pi-clipboard text-lg font-semibold"></i>
                     <h3 class="font-semibold text-lg">Buat Jadwal</h3>
                 </router-link>
@@ -69,7 +69,7 @@ const LogOut = () => {
                 <h3 class="font-bold">Home</h3>
             </router-link>
             <router-link active-class="bg-yellow-400 !text-black" class="text-white rounded-md py-2 flex justify-center"
-                to="/jadwal">
+                to="/schedule">
                 <h3 class="font-bold">Jadwal</h3>
             </router-link>
             <router-link active-class="bg-yellow-400 !text-black" class="text-white rounded-md py-2 flex justify-center"

@@ -4,7 +4,7 @@ import Login from "../Login/Login.vue";
 import Home from "../Home/Home.vue";
 import Dokumentasi from "../Dokumentasi/Dokumentasi.vue";
 import Absen from "../Absen/Absen.vue";
-import Jadwal from "../Jadwal/Jadwal.Vue";
+import Schedule from "../Jadwal/Schedule.vue";
 
 const routes = [
     { 
@@ -23,9 +23,9 @@ const routes = [
         component: Home
     },
     {
-        path: '/jadwal',
-        name: "Jadwal",
-        component: Jadwal
+        path: '/schedule',
+        name: "schedule",
+        component: Schedule
     },
     {
         path: '/dokumentasi',
